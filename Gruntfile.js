@@ -15,6 +15,7 @@ module.exports = function(grunt) {
         dist: {                            // Target
           options: {                       // Target options
             style: 'expanded'
+
           },
           files: {                         // Dictionary of files
             'mainCss/css/style.css': 'mainCss/sass/style.scss'       // 'destination': 'source'
@@ -25,6 +26,10 @@ module.exports = function(grunt) {
         all: ['Gruntfile.js', 'js/script.js']
       },
       watch: {
+        css: {
+          files: '**/*.scss',
+          tasks: ['sass']
+        },
         scripts: {
           files: ['js/script.js'],
           tasks: ['jshint'],
