@@ -42,9 +42,21 @@ html, body {
   border-bottom-left-radius: 50px;
 }
 
-h1 {
-  z-index: 1;
-  color: #F8FAD9;
+.chartOneTop {
+  background-color: #12303a;
+  height: 60px;
+  padding-top: 6px;
+}
+
+.season {
+  font-family: work sans;
+  color: #FDFFDB;
+  margin-left: 2%;
+  letter-spacing: 2px;
+}
+
+.graphOne {
+  height: 540px;
 }
 
 .chartTwo {
