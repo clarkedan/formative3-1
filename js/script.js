@@ -1,11 +1,15 @@
+// google chart packages
 google.charts.load('current', {'packages':['corechart']});
 google.charts.load("current", {packages:['corechart']});
+google.charts.load('current', {'packages':['corechart']});
+google.charts.load("current", {packages:["corechart"]});
 
 // callback Charts
 google.charts.setOnLoadCallback(chartOne);
 google.charts.setOnLoadCallback(chartTwo);
 google.charts.setOnLoadCallback(chartThree);
 google.charts.setOnLoadCallback(chartFour);
+
 
 // pie chart for seasons
 function chartOne() {
@@ -19,10 +23,18 @@ function chartOne() {
   ]);
 
   var options = {
-    colors: ['#83CFC7', '#BBA3BA', '#EB9F7C', '#DC7272'],
+    colors: ['#83CFC7', '#3C6361', '#DAE05C', '#A3A126'],
     backgroundColor: {
       fill: 'transparent'
+    },
+    fontName: 'helvetica',
+    fontSize: '26',
+    legend: {
+      textStyle:{
+        color: '#FDFFDB'
+      }
     }
+
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('topLeft'));
@@ -31,14 +43,14 @@ function chartOne() {
 
 }
 
-// coloumn chart for
+// coloumn chart for favourite web browser
 function chartTwo() {
   var data = google.visualization.arrayToDataTable([
-    ["Element", "Density", { role: "style" } ],
-    ["Copper", 8.94, "#b87333"],
-    ["Silver", 10.49, "silver"],
-    ["Gold", 19.30, "gold"],
-    ["Platinum", 21.45, "color: #e5e4e2"]
+    ["Favourite Web Browser", "Number Of People In The Class", { role: "style" }],
+    ["Safari", 1, "#83CFC7"],
+    ["Chrome", 7, "#3C6361"],
+    ["Internet Explorer", 0, "#A3A126"],
+    ["Platinum", 2, "#DAE05C"]
   ]);
 
   var view = new google.visualization.DataView(data);
@@ -50,53 +62,65 @@ function chartTwo() {
                    2]);
 
   var options = {
-    bar: {groupWidth: "95%"},
+    bar: {groupWidth: "80"},
     legend: { position: "none" },
+    backgroundColor: {
+      fill: 'transparent'
+    }
   };
+
   var chart = new google.visualization.ColumnChart(document.getElementById("topRight"));
+
   chart.draw(view, options);
 
 }
 
-google.charts.load('current', {'packages':['corechart']});
+// area chart for favoiurite takeaways
+  function chartThree() {
+    var data = google.visualization.arrayToDataTable([
+      ['Favourite Takeaways', 'Number Of People In Class'],
+      ['Indian', 2],
+      ['Burgers', 3],
+      ['Asian', 2],
+      ['Pizza', 3]
       
+    ]);
 
-      function chartThree() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
-        ]);
+    var options = {
+      vAxis: {minValue: 0},
+      backgroundColor: {
+        fill: 'transparent'
+      },
+      annotations: {
+        boxStyle: {
+          stroke: '#fff',
+          strokeWidth: '2'
+        }
+      }
+    };
 
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('bottomLeft'));
-        chart.draw(data, options);
+    var chart = new google.visualization.AreaChart(document.getElementById('bottomLeft'));
+    
+    chart.draw(data, options);
       
 }
 
-google.charts.load("current", {packages:["corechart"]});
-      
-
+// --------------------
       function chartFour() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Work',     11],
           ['Eat',      2],
           ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Watch TV', 2]
         ]);
 
         var options = {
-          title: 'My Daily Activities',
-          pieHole: 0.4,
+          pieHole: 0.2,
+          colors: ['#83CFC7', '#BBA3BA', '#EB9F7C', '#DC7272'],
+          backgroundColor: {
+            fill: 'transparent'
+          }
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('bottomRight'));

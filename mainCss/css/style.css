@@ -42,6 +42,11 @@ html, body {
   border-bottom-left-radius: 50px;
 }
 
+h1 {
+  z-index: 1;
+  color: #F8FAD9;
+}
+
 .chartTwo {
   background-color: #04151A;
   height: 600px;

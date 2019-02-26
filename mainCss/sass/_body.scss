@@ -1,5 +1,5 @@
 .leftSide{
-    // background-color: #222;
+    // background-color: #25343B;
     height: 100%;
 }
 .chartOne{
@@ -7,9 +7,11 @@
     height: 600px;
     margin-left: 7%;
     margin-top: 150px;
-    // border-top-left-radius: 100px;
     border-bottom-left-radius: 50px;
-    // border-top-right-radius: 100px;
+}
+h1{
+    z-index: +1;
+    color: #F8FAD9;
 }
 .chartTwo{
     background-color: #04151A;
