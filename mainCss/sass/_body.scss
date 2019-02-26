@@ -7,15 +7,18 @@
     height: 600px;
     margin-left: 7%;
     margin-top: 150px;
+    // border-top-left-radius: 100px;
+    border-bottom-left-radius: 50px;
+    // border-top-right-radius: 100px;
 }
 .chartTwo{
     background-color: #04151A;
     height: 600px;
     margin-left: 7%;
     margin-top: 30px;
+    border-top-left-radius: 50px;
 }
 .rightSide{
-    // background-color: #04151A;
     height: 100%;
 }
 .chartThree{
@@ -23,10 +26,27 @@
     height: 600px;
     margin-right: 7%;
     margin-top: 150px;
+    border-bottom-right-radius: 50px;
 }
 .chartFour{
     background-color: #04151A;
     height: 600px;
     margin-right: 7%;
     margin-top: 30px;
+    border-top-right-radius: 50px;
 }
+.foot{
+    height: 60px;
+    background-color: #04151A;
+    margin-top: 50px;
+}
+.byMe{
+    color: #F0ED37;
+    font-family: comfortaa;
+    font-size: 2em;
+    padding-top: 13px;
+    padding-right: 3%;
+    letter-spacing: 3px;
+    float: right;
+}
+

@@ -1,0 +1,7 @@
+[
+    {"season" : "summer", "percentage" : 60},
+    {"season" : "autumn", "percentage" : 10},
+    {"season" : "winter", "percentage" : 10},
+    {"season" : "spring", "percentage" : 20}
+]
+
