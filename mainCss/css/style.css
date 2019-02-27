@@ -48,7 +48,7 @@ html, body {
   padding-top: 6px;
 }
 
-.season {
+.seasonTop {
   font-family: work sans;
   color: #FDFFDB;
   margin-left: 2%;
@@ -64,7 +64,7 @@ html, body {
   height: 600px;
   margin-left: 7%;
   margin-top: 30px;
-  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
 }
 
 .rightSide {
@@ -84,7 +84,7 @@ html, body {
   height: 600px;
   margin-right: 7%;
   margin-top: 30px;
-  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .foot {

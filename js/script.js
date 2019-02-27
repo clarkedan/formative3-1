@@ -14,13 +14,21 @@ google.charts.setOnLoadCallback(chartFour);
 // pie chart for seasons
 function chartOne() {
 
-  var data = google.visualization.arrayToDataTable([
-    ['Favourite Season', 'How Many People In The Class'],
-    ['summer', 6],
-    ['autumn', 1],
-    ['winter', 1],
-    ['spring', 2],
-  ]);
+    $.ajax({
+      url: "data.json",
+      dataType: "json",
+      type: "GET",
+      success:function(data){
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string','season');
+      data.addColumn('number','percentage');
+      for (var i = 0; i < data.length; i++) {
+          data.addRow([
+                data[i].season,
+                data[i].percentage
+                ]);
+          }   
 
   var options = {
     colors: ['#83CFC7', '#3C6361', '#DAE05C', '#A3A126'],
@@ -41,7 +49,44 @@ function chartOne() {
 
   chart.draw(data, options);
 
+},
+error:function(error){
+    console.log("ERROR");
+    console.log(error);
 }
+
+  });//ajax
+}
+// function chartOne() {
+
+//   var data = google.visualization.arrayToDataTable([
+//     ['Favourite Season', 'How Many People In The Class'],
+//     ['summer', 6],
+//     ['autumn', 1],
+//     ['winter', 1],
+//     ['spring', 2],
+//   ]);
+
+//   var options = {
+//     colors: ['#83CFC7', '#3C6361', '#DAE05C', '#A3A126'],
+//     backgroundColor: {
+//       fill: 'transparent'
+//     },
+//     fontName: 'helvetica',
+//     fontSize: '26',
+//     legend: {
+//       textStyle:{
+//         color: '#FDFFDB'
+//       }
+//     }
+
+//   };
+
+//   var chart = new google.visualization.PieChart(document.getElementById('topLeft'));
+
+//   chart.draw(data, options);
+
+// }
 
 // coloumn chart for favourite web browser
 function chartTwo() {
