@@ -50,7 +50,7 @@ html, body {
 
 .seasonTop {
   font-family: work sans;
-  color: #f0f5fa;
+  color: #f2fcff;
   margin-left: 2%;
   letter-spacing: 2px;
 }
@@ -88,14 +88,13 @@ html, body {
 }
 
 .foot {
-  height: 65px;
+  height: 60px;
   background-color: #04151A;
   margin-top: 50px;
-  /* border-top: solid #83CFC7 5px; */
 }
 
 .byMe {
-  color: #f0f5fa;
+  color: #F0ED37;
   font-family: comfortaa;
   font-size: 2em;
   padding-top: 13px;
