@@ -1,11 +1,6 @@
 // google chart packages
 google.charts.load('current', {'packages':['corechart']});
-google.charts.load("current", {packages:['corechart']});
-google.charts.load('current', {'packages':['corechart']});
-google.charts.load("current", {packages:["corechart"]});
     
-      
-
 // callback Charts
 google.charts.setOnLoadCallback(chartOne);
 google.charts.setOnLoadCallback(chartTwo);
@@ -13,60 +8,23 @@ google.charts.setOnLoadCallback(chartThree);
 google.charts.setOnLoadCallback(chartFour);
 
 // pie chart for seasons
-// function chartOne() {
-
-//     $.ajax({
-//       url: "data.json",
-//       dataType: "json",
-//       type: "GET",
-//       success:function(data){
-
-//       var dataOne = new google.visualization.DataTable();
-//       data.addColumn('string','season');
-//       data.addColumn('number','percentage');
-//       for (var i = 0; i < data.length; i++) {
-//           data.addRow([
-//                 data[i].season,
-//                 data[i].percentage
-//                 ]);
-//           }   
-
-//   var optionsOne = {
-//     colors: ['#83CFC7', '#3C6361', '#DAE05C', '#A3A126'],
-//     backgroundColor: {
-//       fill: 'transparent'
-//     },
-//     fontName: 'helvetica',
-//     fontSize: '26',
-//     legend: {
-//       textStyle:{
-//         color: '#FDFFDB'
-//       }
-//     }
-
-//   };
-
-//   var chartOne = new google.visualization.PieChart(document.getElementById('topLeft'));
-
-//   chart.draw(dataOne, optionsOne);
-
-// },
-// error:function(error){
-//     console.log("ERROR");
-//     console.log(error);
-// }
-
-//   });//ajax
-// }
 function chartOne() {
 
-  var dataOne = google.visualization.arrayToDataTable([
-    ['Favourite Season', 'How Many People In The Class'],
-    ['summer', 6],
-    ['autumn', 1],
-    ['winter', 1],
-    ['spring', 2],
-  ]);
+    $.ajax({
+      url: "js/data.json",
+      dataType: "json",
+      type: "GET",
+      success:function(dataSeason){
+
+      var dataOne = new google.visualization.DataTable();
+      dataOne.addColumn('string','season');
+      dataOne.addColumn('number','percentage');
+      for (var i = 0; i < dataSeason.length; i++) {
+          dataOne.addRow([
+                dataSeason[i].season,
+                dataSeason[i].percentage
+                ]);
+          }   
 
   var optionsOne = {
     colors: ['#83CFC7', '#3C6361', '#DAE05C', '#A3A126'],
@@ -87,7 +45,15 @@ function chartOne() {
 
   chartOne.draw(dataOne, optionsOne);
 
+},
+error:function(error){
+    console.log("ERROR");
+    console.log(error);
 }
+
+  });//ajax
+}
+
 
 // coloumn chart for favourite web browser
   function chartTwo() {
@@ -142,51 +108,67 @@ function chartOne() {
 }
 
 // area chart for favoiurite takeaways
-  function chartThree() {
-    var dataThree = google.visualization.arrayToDataTable([
-      ['Choise Of Takeaways', 'Number Of People In Class'],
-      ['Indian', 2],
-      ['Burgers', 3],
-      ['Asian', 2],
-      ['Pizza', 3]
-      
-    ]);
+function chartThree() {
+
+  $.ajax({
+    url: "js/dataTakeaway.json",
+    dataType: "json",
+    type: "GET",
+    success:function(dataTakeaway){
+
+    var dataThree = new google.visualization.DataTable();
+    dataThree.addColumn('string','takeaway');
+    dataThree.addColumn('number','people');
+    for (var i = 0; i < dataTakeaway.length; i++) {
+        dataThree.addRow([
+              dataTakeaway[i].takeaway,
+              dataTakeaway[i].people
+              ]);
+        }   
 
     var optionsThree = {
-      backgroundColor: {
-        fill: 'transparent'
-      },
-      annotations: {
-        boxStyle: {
-          stroke: '#fff',
-          strokeWidth: '2'
-        }
-      }, 
-       hAxis: {
-        textStyle: {
-          color: '#FDFFDB',
-          fontSize: 20,
-          fontName: 'helvetica'
-        }
-      },
-      vAxis: {
-        minValue: 0,
-        maxValue: 3.5,
-        textStyle: {
-          color: '#FDFFDB',
-          fontSize: 20,
-          fontName: 'helvetica'
-        }
-      },
-      legend: { position: "none" },
-      colors: ['#A3A126'],
-      lineWidth: 5
-    };
+            backgroundColor: {
+              fill: 'transparent'
+            },
+            annotations: {
+              boxStyle: {
+                stroke: '#fff',
+                strokeWidth: '2'
+              }
+            }, 
+              hAxis: {
+              textStyle: {
+                color: '#FDFFDB',
+                fontSize: 20,
+                fontName: 'helvetica'
+              }
+            },
+            vAxis: {
+              minValue: 0,
+              maxValue: 3.5,
+              textStyle: {
+                color: '#FDFFDB',
+                fontSize: 20,
+                fontName: 'helvetica'
+              }
+            },
+            legend: { position: "none" },
+            colors: ['#A3A126'],
+            lineWidth: 5
+          };
 
-    var chartThree = new google.visualization.AreaChart(document.getElementById('bottomLeft'));
+var chartThree = new google.visualization.AreaChart(document.getElementById('bottomLeft'));
     
-    chartThree.draw(dataThree, optionsThree);
-      
+
+chartThree.draw(dataThree, optionsThree);
+
+},
+error:function(error){
+  console.log("ERROR");
+  console.log(error);
+}
+
+});//ajax
 }
 
 // --------------------
@@ -232,5 +214,7 @@ function chartOne() {
       var chart = new google.visualization.BarChart(document.getElementById("bottomRight"));
       chart.draw(viewFour, optionsFour);
   }
+
+
 
 
