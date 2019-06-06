@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
+
       //uglify task
       uglify: {
         
@@ -11,6 +12,8 @@ module.exports = function(grunt) {
           dest: 'js/script.min.js'
         }
       },
+
+      //making sass files
       sass: {                              // Task
         dist: {                            // Target
           options: {                       // Target options
@@ -22,9 +25,13 @@ module.exports = function(grunt) {
           }
         }
       },
+
+      //checks these files for java script errors
       jshint: {
         all: ['Gruntfile.js', 'js/script.js']
       },
+
+      //watches these files to make sure they are functioning
       watch: {
         css: {
           files: '**/*.scss',
